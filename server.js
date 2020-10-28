@@ -13,6 +13,7 @@ const { DB_LOCAL, DB_PASSWORD, DB_NAME, DB_USER, PORT } = require("./envConfig")
 const app = express();
 
 const heartbeat = require('./router/heartBeat');
+const test = require('./router/apiTest');
 
 app.use(bodyParser.json());
 
@@ -21,6 +22,8 @@ app.use("/css",express.static(__dirname + "/css"));
 app.use("/js", express.static(__dirname + "/js"));
 
 app.use('/heartbeat', heartbeat);
+app.use('/test', test);
+
 
   app.listen(PORT, ()=> {
     console.log(`The server at port ${PORT} is listening...`);
