@@ -1,1 +1,5 @@
-package.json
+# These files and folders won't be committed to git
+.DS_Store
+node_modules
+.vscode
+.env
