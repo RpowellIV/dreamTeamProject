@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "dreamTeam",
-    "password": null,
-    "database": "database_development",
+    "username": "dreamteam",
+    "password": "testpassword",
+    "database": "jobbyist",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
