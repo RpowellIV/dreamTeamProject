@@ -8,10 +8,10 @@ passport.serializeUser(function (user, done) {
     to the done callback
     PS: You dont have to do it like this its just usually done like this
     */
-    done(null, user.id);
+    done(null, user);
 });
 
-passport.deserializeUser(function (id, done) {
+passport.deserializeUser(function (user, done) {
     /*
     Instead of user this function usually recives the id 
     then you use the id to select the user from the db and pass the user obj to the done callback
@@ -26,9 +26,9 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:3000/auth/google/callback"
 },
     function (accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ googleId: profile.id }, function (err, user) {
-            return done(err, user);
-        });
+        // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        //     return done(err, user);
+        // });
         /*
          use the profile info (mainly profile id) to check if the user is registerd in ur db
          If yes select the user and pass him to the done callback
@@ -37,8 +37,6 @@ passport.use(new GoogleStrategy({
         return done(null, profile);
     }
 ));
-
-
 
 
 module.exports = passport
