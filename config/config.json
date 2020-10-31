@@ -3,7 +3,7 @@
     "username": "dreamteam",
     "password": "testpassword",
     "database": "jobbyist",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
