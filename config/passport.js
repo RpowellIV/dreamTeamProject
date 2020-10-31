@@ -31,7 +31,7 @@ passport.use(new GoogleStrategy({
         }
 
         done(null, user)
-        console.log(profile)
+        // console.log(profile)
     }
 ));
 
@@ -41,7 +41,7 @@ passport.serializeUser(function (user, done) {
     to the done callback
     PS: You dont have to do it like this its just usually done like this
     */
-    done(null, user.id);
+    done(null, user);
 });
 
 passport.deserializeUser(function (id, done) {
@@ -50,9 +50,11 @@ passport.deserializeUser(function (id, done) {
     then you use the id to select the user from the db and pass the user obj to the done callback
     PS: You can later access this data in any routes in: req.user
     */
-    User.findByPk(id, function (err, user) {
-        done(err, user)
-    })
+   done(null, id)
+
+    // User.findByPk(id, function (err, user) {
+    //     done(null, id)
+    // })
 
 
 });
