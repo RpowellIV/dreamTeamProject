@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
                 image: profile.photos[0].value,
-                email: profile.email,
+                email: profile.emails[0].value,
                 createdAt: new Date(),
                 updatedAt: new Date(),
 
@@ -31,7 +31,7 @@ passport.use(new GoogleStrategy({
         }
 
         done(null, user)
-        // console.log(profile)
+        console.log(profile)
     }
 ));
 

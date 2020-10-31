@@ -29,12 +29,24 @@ User.init({
         type: DataTypes.STRING
         // allowNull defaults to true
     },
+    isEmployer: {
+        type: DataTypes.BOOLEAN
+        // allowNull defaults to true
+    },
+    isEmployee: {
+        type: DataTypes.BOOLEAN
+        // allowNull defaults to true
+    },
+    bio: {
+        type: DataTypes.TEXT
+        // allowNull defaults to true
+    },
 
 }, {
 
     sequelize,
     modelName: 'User',
-    freezeTableName: true
+    // freezeTableName: true
 
 });
 
