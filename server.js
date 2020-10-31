@@ -3,14 +3,14 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require('passport');
+const passport = require('./config/passport');
 const fetch = require('node-fetch');
 const pgp = require('pg-promise')();
 const Sequelize = require('sequelize');
 const ejs = require('ejs');
 const authRouter = require('./router/auth')
 const mainRouter = require('./router/main')
-require('./auth/passport-setup');
+// require('./auth/passport-setup');
 
 
 const {
