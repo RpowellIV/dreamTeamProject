@@ -1,17 +1,15 @@
-
-require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const passport = require('./config/passport');
-const fetch = require('node-fetch');
-const pgp = require('pg-promise')();
-const Sequelize = require('sequelize');
-const ejs = require('ejs');
-const authRouter = require('./router/auth')
-const mainRouter = require('./router/main')
+require("dotenv").config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("./config/passport");
+const fetch = require("node-fetch");
+const pgp = require("pg-promise")();
+const Sequelize = require("sequelize");
+const ejs = require("ejs");
+const authRouter = require("./router/auth");
+const mainRouter = require("./router/main");
 // require('./auth/passport-setup');
-
 
 const {
   DB_LOCAL,
@@ -28,24 +26,24 @@ const test = require("./router/apiTest");
 
 app.use(bodyParser.json());
 
-
 // setup sessions with cookies
-app.use(session({
-  secret: 'super secret',
-  cookie: { maxAge: 60000 }
-}))
+app.use(
+  session({
+    secret: "super secret",
+    cookie: { maxAge: 60000 },
+  })
+);
 
 // attach passport to express and sessions
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Attach routes
-app.use('/auth', authRouter)
-app.use('/', mainRouter)
+app.use("/auth", authRouter);
+app.use("/", mainRouter);
 
-app.use('/', express.static(__dirname + '/public'));
-app.use('/js', express.static(__dirname + '/js'));
-
+app.use("/", express.static(__dirname + "/public"));
+app.use("/js", express.static(__dirname + "/js"));
 
 // Below is setting the view to look for an ejs file
 app.set("view engine", "ejs");
@@ -56,13 +54,18 @@ app.get("/", (req, res) => {
 });
 
 // Renders the dashboard for the employer
-app.get("/", (req, res) => {
+app.get("/employer", (req, res) => {
   res.render("pages/employer");
 });
 
 // Renders the dashboard for the employee
-app.get("/", (req, res) => {
+app.get("/employee", (req, res) => {
   res.render("pages/employee");
+});
+
+//Renders the landiung page
+app.get("/landingPage", (req, res) => {
+  res.render("pages/landingPage");
 });
 
 app.use("/heartbeat", heartbeat);

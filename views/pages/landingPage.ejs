@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <%- include("../partials/head"); %>
+  </head>
+
+  <body class="container">
+    <header><%- include("../partials/header"); %></header>
+    <br />
+    <br />
+    <div class="greeting">
+      <h3>Let's work together</h3>
+      <p>First tell us a little about yourself</p>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card" style="width: 25rem">
+          <img
+            src="../../img/employee.png"
+            class="card-img-top"
+            alt="Picture of employees"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Employee</h5>
+            <p class="card-text">
+              Are you looking for work? Let us help you find your next job!
+            </p>
+            <a href="../pages/employee.ejs" class="btn btn-primary"
+              >Click to Search</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card" style="width: 25rem">
+          <img
+            src="../../img/employer2.png"
+            class="card-img-top"
+            alt="Picture of an employer"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Employer</h5>
+            <p class="card-text">
+              Is your team expanding and need help? Let us help you find the
+              right person!
+            </p>
+            <a href="../pages/employer.ejs" class="btn btn-primary"
+              >Click to Hire</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <footer><%- include("../partials/footer"); %></footer>
+  </body>
+</html>
