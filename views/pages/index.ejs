@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <title>Jobbyist App</title>
-    <link rel="stylesheet" href="/styles.css" /> -->
-  <%- include("../partials/head"); %>
-</head>
+    <%- include("../partials/head"); %>
+  </head>
 
-<body class="container">
-  <header><%- include("../partials/header"); %></header>
-  <main>
-    <div class="jumbotron">
-      <h2>Please sign in with Google down below:</h2>
-      <button type="button" class="btn btn-success"><a href="../auth/google">Log-In</a></button>
-    </div>
-  </main>
+  <body class="container">
+    <header><%- include("../partials/header"); %></header>
+    <main>
+      <div class="jumbotron">
+        <h2>Please sign in with Google down below:</h2>
+        <button type="button" class="btn btn-success">
+          <a href="../auth/google">Log-In</a>
+        </button>
+      </div>
+    </main>
 
-  <footer><%- include("../partials/footer"); %></footer>
-</body>
-
+    <footer><%- include("../partials/footer"); %></footer>
+  </body>
 </html>
