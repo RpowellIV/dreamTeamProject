@@ -1,14 +1,15 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const passport = require("./config/passport");
-const fetch = require("node-fetch");
-const pgp = require("pg-promise")();
-const Sequelize = require("sequelize");
-const ejs = require("ejs");
-const authRouter = require("./router/auth");
-const mainRouter = require("./router/main");
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('./config/passport');
+const fetch = require('node-fetch');
+const pgp = require('pg-promise')();
+const Sequelize = require('sequelize');
+const ejs = require('ejs');
+const authRouter = require('./router/auth')
+const mainRouter = require('./router/main')
+// const dashBoard = require('./router/dashBoard')
 // require('./auth/passport-setup');
 
 const {
@@ -39,8 +40,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Attach routes
-app.use("/auth", authRouter);
-app.use("/", mainRouter);
+
+app.use('/auth', authRouter)
+app.use('/', mainRouter)
+// app.use('/dashboard', dashBoard)
+
+app.use('/', express.static(__dirname + '/public'));
+app.use('/js', express.static(__dirname + '/js'));
 
 app.use("/", express.static(__dirname + "/public"));
 app.use("/js", express.static(__dirname + "/js"));
