@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('../models/user')
@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
                 firstName: profile.name.givenName,
                 lastName: profile.name.familyName,
                 image: profile.photos[0].value,
-                email: profile.email,
+                email: profile.emails[0].value,
                 createdAt: new Date(),
                 updatedAt: new Date(),
 
@@ -41,7 +41,7 @@ passport.serializeUser(function (user, done) {
     to the done callback
     PS: You dont have to do it like this its just usually done like this
     */
-    done(null, user.id);
+    done(null, user);
 });
 
 passport.deserializeUser(function (id, done) {
@@ -50,9 +50,11 @@ passport.deserializeUser(function (id, done) {
     then you use the id to select the user from the db and pass the user obj to the done callback
     PS: You can later access this data in any routes in: req.user
     */
-    User.findByPk(id, function (err, user) {
-        done(err, user)
-    })
+   done(null, id)
+
+    // User.findByPk(id, function (err, user) {
+    //     done(null, id)
+    // })
 
 
 });
