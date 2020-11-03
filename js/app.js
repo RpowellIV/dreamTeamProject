@@ -1,3 +1,4 @@
-// $().ready(() => {
-//     console.log("Hello")
-// })
+$().ready(() => {
+    const routes = require('./router/main')
+    
+})
