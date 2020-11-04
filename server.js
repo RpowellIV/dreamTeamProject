@@ -55,24 +55,25 @@ app.use("/js", express.static(__dirname + "/js"));
 app.set("view engine", "ejs");
 
 // Rendering the homepage through ejs, can be moved to a router file if you all want
-app.get("/", (req, res) => {
-  res.render("pages/index");
-});
+// app.get("/", (req, res) => {
+//   res.render("pages/index");
+// });
 
-// Renders the dashboard for the employer
-app.get("/employer", (req, res) => {
-  res.render("pages/employer");
-});
+// // Renders the dashboard for the employer
+// app.get("/employer", (req, res) => {
+//   res.render("pages/employer");
+// });
 
-// Renders the dashboard for the employee
-app.get("/employee", (req, res) => {
-  res.render("pages/employee");
-});
+// // Renders the dashboard for the employee
+// app.get("/employee", (req, res) => {
+//   res.render("pages/employee");
+// });
 
-//Renders the landiung page
-app.get("/landingPage", (req, res) => {
-  res.render("pages/landingPage");
-});
+// //Renders the landiung page
+// //already added to main router
+// app.get("/landingPage", (req, res) => {
+//   res.render("pages/landingPage");
+// });
 
 app.use("/heartbeat", heartbeat);
 app.use("/test", test);
