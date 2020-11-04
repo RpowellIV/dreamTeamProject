@@ -45,7 +45,7 @@ User.init({
 }, {
 
     sequelize,
-    modelName: 'User',
+    modelName: 'Users',
     // freezeTableName: true
 
 });

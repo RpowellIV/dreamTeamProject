@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 });
 
 // Homepage
-router.get('/dashboard', ensureAuthenticated, (req, res) => {
+router.get("/landingPage", ensureAuthenticated, (req, res) => {
     // res.send(`<h1>Hello world from server</h1>
     // <a href="./auth/logout">Logout</a>
     // <h2>Req.session</h2>
