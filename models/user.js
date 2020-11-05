@@ -1,8 +1,18 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../config/sequelize')
-
-
-class User extends Model { }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  };
 
 User.init({
     // Model attributes are defined here
@@ -45,9 +55,9 @@ User.init({
 }, {
 
     sequelize,
-    modelName: 'User',
+    modelName: 'Users',
     // freezeTableName: true
 
 });
-
-module.exports = User
+ return User;
+};

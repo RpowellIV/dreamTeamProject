@@ -51,11 +51,11 @@
             Is your team expanding and need help? Let us help you find the
             right person!
           </p>
-          <form>
+          <form id="bioForm">
 
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Are you an employee or an employer?</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <label for="isEmployer">Are you an employee or an employer?</label>
+              <select class="form-control" id="isEmployer" name="isEmployer">
                 <option>Employee</option>
                 <option>Employer</option>
               </select>
@@ -65,11 +65,12 @@
               <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Enter Bio Here</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="bio">Enter Bio Here</label>
+              <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
             </div>
-          </form>
-          <a href="# post request to db" class="btn btn-primary">Click to Submit</a>
+        
+          <button type="submit"></button><a href="# post request to db" class="btn btn-primary">Click to Submit</a></button>
+        </form>
         </div>
       </div>
     </div>
