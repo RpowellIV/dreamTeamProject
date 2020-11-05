@@ -15,13 +15,12 @@ const db = require('./models');
         })
 
     
-        res.json({
-            api: "Dashboard",
-            id: editUser.id,
-            isEmployer,
+    res.json({
+        api: "Dashboard",
+        id: editUser.id,
+        isEmployer,
         isEmployee,
         bio
-
         });
     });
 
