@@ -48,9 +48,6 @@ app.use('/', mainRouter)
 app.use('/', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/js'));
 
-app.use("/", express.static(__dirname + "/public"));
-app.use("/js", express.static(__dirname + "/js"));
-
 // Below is setting the view to look for an ejs file
 app.set("view engine", "ejs");
 
