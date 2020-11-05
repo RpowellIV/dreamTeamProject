@@ -3,23 +3,23 @@ const passport = require('../config/passport');
 const dash = express();
 
 const ejs = require('ejs');
-const db = require('../models');
+const db = require('../models').User;
 
     dash.get("/",async (req, res) => {
         const {isEmployer, bio} = req.body;
 
-        // const editUser = await db.User.insert({
-        // isEmployer,
-        // bio
-        // })
+        const editUser = await db.User.insert({
+        isEmployer,
+        bio
+        })
 
     
-        // res.json({
-        //     api: "Dashboard",
-        //     id: editUser.id,
-        //     isEmployer,
-        //     bio
-        // });
+        res.json({
+            api: "Dashboard",
+            id: editUser.id,
+            isEmployer,
+            bio
+        });
     });
 
     // dash.get("/books", async (req, res) => {
