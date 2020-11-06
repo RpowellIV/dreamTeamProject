@@ -24,6 +24,7 @@ const app = express();
 
 const heartbeat = require("./router/heartBeat");
 const test = require("./router/apiTest");
+const { router: jobsRouter } = require("./router/jobs")
 
 app.use(bodyParser.json());
 
@@ -48,9 +49,12 @@ app.use('/dashboard', dashBoard);
 app.use('/', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/js'));
 
+<<<<<<< HEAD
 // app.use("/", express.static(__dirname + "/public"));
 // app.use("/js", express.static(__dirname + "/js"));
 
+=======
+>>>>>>> development
 // Below is setting the view to look for an ejs file
 app.set("view engine", "ejs");
 
@@ -77,6 +81,7 @@ app.set("view engine", "ejs");
 
 app.use("/heartbeat", heartbeat);
 app.use("/test", test);
+app.use("/jobs", jobsRouter);
 
 app.listen(PORT, () => {
   console.log(`The server at port ${PORT} is listening...`);

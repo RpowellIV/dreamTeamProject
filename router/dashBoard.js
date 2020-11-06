@@ -42,6 +42,7 @@ console.log("start")
         })
         .catch((e) => console.log(e))
 
+<<<<<<< HEAD
         console.log(user)
         
 
@@ -53,6 +54,15 @@ console.log("start")
             id: user.id,
             isEmployer,
             bio
+=======
+    
+    res.json({
+        api: "Dashboard",
+        id: editUser.id,
+        isEmployer,
+        isEmployee,
+        bio
+>>>>>>> development
         });
         // (isEmployer) ? res.render("pages/employer") : 
       };  // res.render("pages/employee")

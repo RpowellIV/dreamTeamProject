@@ -23,30 +23,17 @@ module.exports = {
       location: {
         type: Sequelize.STRING
       },
-<<<<<<< HEAD
-=======
       city: {
         type: Sequelize.STRING
       },
       state: {
         type: Sequelize.STRING
       },
->>>>>>> development
       numApplied: {
         type: Sequelize.INTEGER
       },
       whoApplied: {
-<<<<<<< HEAD
-        type: Sequelize.STRING,
-        // onDelete: 'CASCADE',
-        // references: {
-        //         model: 'Users',
-        //         key: 'id',
-        //         as: 'whoApplied'
-        //       }
-=======
         type: Sequelize.STRING
->>>>>>> development
       },
       createdAt: {
         allowNull: false,
