@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 });
 
 // Homepage
-router.get("/landingPage", ensureAuthenticated, (req, res) => {
+router.get("/landingPage", (req, res) => {
     // res.send(`<h1>Hello world from server</h1>
     // <a href="./auth/logout">Logout</a>
     // <h2>Req.session</h2>
@@ -31,12 +31,12 @@ router.get("/landingPage", ensureAuthenticated, (req, res) => {
 })
 
 // Renders the dashboard for the employer
-router.get("/employer", ensureAuthenticated, (req, res) => {
+router.get("/employer", (req, res) => {
     res.render("pages/employer");
 });
 
 // Renders the dashboard for the employee
-router.get("/employee", ensureAuthenticated, (req, res) => {
+router.get("/employee", (req, res) => {
     res.render("pages/employee");
 });
 
