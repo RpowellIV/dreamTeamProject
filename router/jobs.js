@@ -1,11 +1,10 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-const ejs = require('ejs');
-const db = require('./models');
+const db = require('../models').Jobs;
 
-app.get("/", async (req, res) => {
-    const jobs = await db.Jobs.findAll({
+router.get("/", async (req, res) => {
+    const jobs = await db.findAll({
         attributes: ['title', 'companyName', 'description', 'email', 'location']
     })
     res.json({
@@ -13,3 +12,5 @@ app.get("/", async (req, res) => {
         jobs
     })
 })
+
+module.exports = {router};
