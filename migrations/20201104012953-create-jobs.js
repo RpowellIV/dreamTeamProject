@@ -23,6 +23,12 @@ module.exports = {
       location: {
         type: Sequelize.STRING
       },
+      city: {
+        type: Sequelize.STRING
+      },
+      state: {
+        type: Sequelize.STRING
+      },
       numApplied: {
         type: Sequelize.INTEGER
       },
