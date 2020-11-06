@@ -5,7 +5,7 @@ const db = require('../models').Jobs;
 
 router.get("/", async (req, res) => {
     const jobs = await db.findAll({
-        attributes: ['title', 'companyName', 'description', 'email', 'location']
+        attributes: ['title', 'companyName', 'description', 'email', 'city', 'state', 'location']
     })
     res.json({
         is: "working", 
