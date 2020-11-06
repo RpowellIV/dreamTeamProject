@@ -1,14 +1,5 @@
-const { default: fetch } = require("node-fetch");
-
+// const { default: fetch } = require("node-fetch");
 let form = document.getElementById("bioForm");
-
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    console.log(e);
-    const data = new FormData(form);
-    console.log(stringifyFormData(data));
-   postData('http://localhost:3000/dashboard', data) 
-});
 
 async function postData(url = '', data = {}) {
     // Default options are marked with *
@@ -28,6 +19,13 @@ async function postData(url = '', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    console.log(e);
+    const data = new FormData(form);
+    console.log(stringifyFormData(data));
+    postData('http://localhost:3000/dashboard', data) 
+});
 
 function stringifyFormData(fd) {
     const data = {};

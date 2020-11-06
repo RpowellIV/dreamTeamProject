@@ -1,25 +1,61 @@
 const express = require('express');
 const passport = require('../config/passport');
+const bodyParser = require('body-parser');
 const dash = express();
 
 const ejs = require('ejs');
-const db = require('../models').User;
+const db = require('../models');
 
-    dash.get("/",async (req, res) => {
+console.log("start")
+
+    dash.post("/", async (req, res) => {
+
+        console.log("Here")
+        console.log(req.user.id);
+
         const {isEmployer, bio} = req.body;
 
-        const editUser = await db.User.insert({
-        isEmployer,
-        bio
-        })
+        console.log(isEmployer,bio)
 
-    
-        res.json({
+        // const user = await db.Users.findOne({ where: { id: req.user.id }})
+        
+        const user = await db.Users.update(
+            {isEmployer: true},
+
+            { 
+                where: {
+                     id: req.user.id 
+                    }, 
+                returning: true
+            }
+        )
+        // const user = await db.Users.update({
+        //     isEmployer,
+        //     bio
+        // },
+        // { where: { id: req.user.id },
+        //     returning: true,
+        //     plain: true
+        // })
+        .then(function(result){
+            console.log(result)
+        })
+        .catch((e) => console.log(e))
+
+        console.log(user)
+        
+
+        if (!user) {
+            console.error('error')
+        } else {
+            res.json({
             api: "Dashboard",
-            id: editUser.id,
+            id: user.id,
             isEmployer,
             bio
         });
+        // (isEmployer) ? res.render("pages/employer") : 
+      };  // res.render("pages/employee")
     });
 
     // dash.get("/books", async (req, res) => {
