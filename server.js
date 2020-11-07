@@ -9,7 +9,8 @@ const Sequelize = require('sequelize');
 const ejs = require('ejs');
 const authRouter = require('./router/auth')
 const mainRouter = require('./router/main')
-// const dashBoard = require('./router/dashBoard')
+const landingPage = require('./router/landingPage')
+const { User } = require('./models');
 // require('./auth/passport-setup');
 
 const {
@@ -42,12 +43,15 @@ app.use(passport.session());
 
 // Attach routes
 
-app.use('/auth', authRouter)
-app.use('/', mainRouter)
-// app.use('/dashboard', dashBoard)
+app.use('/auth', authRouter);
+app.use('/', mainRouter);
+app.use('/landingPage', landingPage);
 
 app.use('/', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/js'));
+
+// app.use("/", express.static(__dirname + "/public"));
+// app.use("/js", express.static(__dirname + "/js"));
 
 // Below is setting the view to look for an ejs file
 app.set("view engine", "ejs");

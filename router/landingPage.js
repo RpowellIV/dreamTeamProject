@@ -65,6 +65,9 @@ router.post('/', async (req, res) => {
 
         res.render('pages/employer')
     }
+    // } else {
+    //     return console.error(err);
+    // }
 });
 
 

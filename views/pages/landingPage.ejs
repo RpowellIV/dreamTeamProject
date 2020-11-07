@@ -51,25 +51,27 @@
             Is your team expanding and need help? Let us help you find the
             right person!
           </p>
-          <form>
+          <form id="bioForm" method="post">
 
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Are you an employee or an employer?</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Employee</option>
-                <option>Employer</option>
+              <label for="isEmployer">Are you an employee or an employer?</label>
+              <select class="form-control" id="isEmployer" name="isEmployer" required>
+                <!-- <option value='null'>PLEASE PICK ONE</option> -->
+                <option value='true'>Employer</option>
+                <option value='false'>Employee</option>
               </select>
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">If employer, enter your company name.</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google" required>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Enter Bio Here</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="bio">Enter Bio Here</label>
+              <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
             </div>
-          </form>
-          <a href="# post request to db" class="btn btn-primary">Click to Submit</a>
+        
+          <button type="submit">Click to Submit</button>
+        </form>
         </div>
       </div>
     </div>
@@ -80,5 +82,6 @@
   <br />
 
   <footer><%- include("../partials/footer"); %></footer>
-  </body>
+  <!-- <script src="../../js/bioClick.js"></script>   -->
+</body>
 </html>
