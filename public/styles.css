@@ -64,3 +64,8 @@ img {
 .row {
   margin-left: 10px;
 }
+
+.form-center {
+  margin: auto;
+  width: 50%;
+}

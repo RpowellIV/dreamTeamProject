@@ -39,50 +39,51 @@
     <br />
     <br />
 
+    <div class="container form-center">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="width: 25rem">
+            <img src="../../img/employee.png" class="card-img-top" alt="Picture of employees" />
+            <div class="card-body">
+              <h5 class="card-title">Help Wanted!</h5>
+              <p class="card-text">
+                Are you looking for work? Let us help you find your next job!
+              </p>
+              <p class="card-text">
+                Is your team expanding and need help? Let us help you find the
+                right person!
+              </p>
+              <form id="bioForm" method="post">
 
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card" style="width: 25rem">
-          <img src="../../img/employee.png" class="card-img-top" alt="Picture of employees" />
-          <div class="card-body">
-            <h5 class="card-title">Help Wanted!</h5>
-            <p class="card-text">
-              Are you looking for work? Let us help you find your next job!
-            </p>
-            <p class="card-text">
-              Is your team expanding and need help? Let us help you find the
-              right person!
-            </p>
-            <form id="bioForm" method="post">
+                <div class="form-group">
+                  <label for="isEmployer">Are you an employee or an employer?</label>
+                  <select class="form-control" id="isEmployer" name="isEmployer" required>
+                    <!-- <option value='null'>PLEASE PICK ONE</option> -->
+                    <option value='true'>Employer</option>
+                    <option value='false'>Employee</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="companyName">If employer, enter your company name.</label>
+                  <input type="text" class="form-control" id="companyName" name="companyName"
+                    placeholder="PLACEHOLDER INC." required>
+                </div>
+                <div class="form-group">
+                  <label for="bio">Enter Bio Here</label>
+                  <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
+                </div>
 
-              <div class="form-group">
-                <label for="isEmployer">Are you an employee or an employer?</label>
-                <select class="form-control" id="isEmployer" name="isEmployer" required>
-                  <!-- <option value='null'>PLEASE PICK ONE</option> -->
-                  <option value='true'>Employer</option>
-                  <option value='false'>Employee</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="companyName">If employer, enter your company name.</label>
-                <input type="text" class="form-control" id="companyName" name="companyName"
-                  placeholder="PLACEHOLDER INC." required>
-              </div>
-              <div class="form-group">
-                <label for="bio">Enter Bio Here</label>
-                <textarea class="form-control" id="bio" rows="3" name="bio" required></textarea>
-              </div>
+                <button type="submit">Click to Submit</button>
+              </form>
+            </div>
 
-              <button type="submit">Click to Submit</button>
-            </form>
           </div>
+          <br />
+          <br />
+          <br />
 
+          <footer><%- include("../partials/footer"); %></footer>
         </div>
-        <br />
-        <br />
-        <br />
-
-        <footer><%- include("../partials/footer"); %></footer>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
