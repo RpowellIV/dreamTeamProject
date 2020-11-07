@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
 });
 
 // Homepage
+<<<<<<< HEAD
 router.get("/landingPage", (req, res) => {
     // res.send(`<h1>Hello world from server</h1>
     // <a href="./auth/logout">Logout</a>
@@ -28,6 +29,20 @@ router.get("/landingPage", (req, res) => {
     // res.render('/dashbord');
     res.render("pages/landingPage");
 });
+=======
+// router.get("/landingPage", ensureAuthenticated, (req, res) => {
+//     // res.send(`<h1>Hello world from server</h1>
+//     // <a href="./auth/logout">Logout</a>
+//     // <h2>Req.session</h2>
+//     // <pre>${JSON.stringify(req.session, null, '\t')}</pre>
+//     // <h2>Req.user</h2>
+//     // <pre>${JSON.stringify(req.user, null, '\t')}</pre>`)
+//     // res.send(`<h1>TEST</h1>`);
+//     // res.render('/dashbord');
+//     res.render("pages/landingPage");
+// })
+
+>>>>>>> development
 
 // Renders the dashboard for the employer
 router.get("/employer", (req, res) => {

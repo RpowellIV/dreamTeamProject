@@ -1,8 +1,9 @@
 require('dotenv').config()
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const User = require('../models/user')
+const User = require('../models').Users;
 
+console.log(User)
 // Setting up Passport and the passport strategy
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -10,7 +11,6 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CLIENT_CALLBACK
 },
     async function (accessToken, refreshToken, profile, done) {
-
         // Check if the user already exists, i.e. they logged in before.
         let user = await User.findOne({ where: { googleId: parseInt(profile.id) } })
 
@@ -50,6 +50,7 @@ passport.deserializeUser(function (id, done) {
     then you use the id to select the user from the db and pass the user obj to the done callback
     PS: You can later access this data in any routes in: req.user
     */
+   
    done(null, id)
 
     // User.findByPk(id, function (err, user) {
@@ -60,4 +61,4 @@ passport.deserializeUser(function (id, done) {
 });
 
 
-module.exports = passport
+module.exports = passport;
