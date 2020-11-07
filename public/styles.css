@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #e8e8e8;
+  background-color: white;
 }
 
 .greeting {
@@ -14,6 +14,11 @@ body {
 img {
   width: 550px;
   height: 300px;
+}
+
+.jobbyist-logo {
+  width: 4rem;
+  height: 4rem;
 }
 
 .job-search {
@@ -28,4 +33,31 @@ img {
 .notification-bell {
   width: 3rem;
   height: 3rem;
+}
+
+.dashboard-pic {
+  width: 2rem;
+  height: 2rem;
+}
+.folder-pic {
+  width: 2rem;
+  height: 2rem;
+}
+.jobs-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tasks-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.settings-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.row {
+  margin-left: 10px;
 }
