@@ -13,12 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-<<<<<<< HEAD
-
-User.init({
-=======
   User.init({
->>>>>>> development
     // Model attributes are defined here
     googleId: {
         type: DataTypes.NUMERIC,
@@ -58,15 +53,7 @@ User.init({
 
 }, {
     sequelize,
-<<<<<<< HEAD
     modelName: 'Users',
-    // freezeTableName: true
-
-});
- return User;
-=======
-    modelName: 'User',
   });
   return User;
->>>>>>> development
 };
