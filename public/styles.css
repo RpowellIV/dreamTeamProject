@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  background-color: cadetblue;
+}
 
 body {
   background-color: #e8e8e8;

@@ -8,79 +8,92 @@
   <%- include("../partials/head"); %>
 </head>
 
-<body class="container">
-  <!-- <header><%- include("../partials/header"); %></header> -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Jobbyist</a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/employer">Employer</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/employee">Employee</a>
-      </li>
-    </ul>
+<body>
+  <div class="container">
+    <!-- <header><%- include("../partials/header"); %></header> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <img src="../../img/jobbyist-logo.png" alt="jobbyist-logo" class="img-logo">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employer">Employer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employee">Employee</a>
+        </li>
+      </ul>
 
-    <a class="btn btn-danger" href="../auth/logout" role="button">Log-Out</a>
+      <a class="btn btn-danger" href="../auth/logout" role="button">Log-Out</a>
 
-  </nav>
+    </nav>
 
-  <br />
-  <br />
-  <div class="greeting">
-    <h3>Let's work together</h3>
-    <p>First tell us a little about yourself</p>
-  </div>
-  <br />
-  <br />
-  <br />
+    <br />
+    <br />
+    <div class="greeting">
+      <h3>Let's work together</h3>
+      <p>First tell us a little about yourself</p>
+    </div>
+    <br />
+    <br />
+    <br />
 
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 25rem">
-        <img src="../../img/employee.png" class="card-img-top" alt="Picture of employees" />
-        <div class="card-body">
-          <h5 class="card-title">Help Wanted!</h5>
-          <p class="card-text">
-            Are you looking for work? Let us help you find your next job!
-          </p>
-          <p class="card-text">
-            Is your team expanding and need help? Let us help you find the
-            right person!
-          </p>
-          <form>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card" style="width: 25rem">
+          <img src="../../img/employee.png" class="card-img-top" alt="Picture of employees" />
+          <div class="card-body">
+            <h5 class="card-title">Help Wanted!</h5>
+            <p class="card-text">
+              Are you looking for work? Let us help you find your next job!
+            </p>
+            <p class="card-text">
+              Is your team expanding and need help? Let us help you find the
+              right person!
+            </p>
+            <form>
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Are you an employee or an employer?</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Employee</option>
-                <option>Employer</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">If employer, enter your company name.</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Enter Bio Here</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </form>
-          <a href="# post request to db" class="btn btn-primary">Click to Submit</a>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Are you an employee or an employer?</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Employee</option>
+                  <option>Employer</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">If employer, enter your company name.</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Google">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Enter Bio Here</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+            </form>
+            <a href="# post request to db" class="btn btn-primary">Click to Submit</a>
+          </div>
         </div>
       </div>
+
     </div>
+    <br />
+    <br />
+    <br />
 
+    <footer><%- include("../partials/footer"); %></footer>
   </div>
-  <br />
-  <br />
-  <br />
-
-  <footer><%- include("../partials/footer"); %></footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="module" src="../js/app.js"></script>
 </body>
 
 </html>
