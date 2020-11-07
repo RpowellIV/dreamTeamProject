@@ -50,32 +50,10 @@ app.use('/landingPage', landingPage);
 app.use('/', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/js'));
 
-// app.use("/", express.static(__dirname + "/public"));
-// app.use("/js", express.static(__dirname + "/js"));
-
 // Below is setting the view to look for an ejs file
 app.set("view engine", "ejs");
 
-// Rendering the homepage through ejs, can be moved to a router file if you all want
-// app.get("/", (req, res) => {
-//   res.render("pages/index");
-// });
 
-// // Renders the dashboard for the employer
-// app.get("/employer", (req, res) => {
-//   res.render("pages/employer");
-// });
-
-// // Renders the dashboard for the employee
-// app.get("/employee", (req, res) => {
-//   res.render("pages/employee");
-// });
-
-// //Renders the landiung page
-// //already added to main router
-// app.get("/landingPage", (req, res) => {
-//   res.render("pages/landingPage");
-// });
 
 app.use("/heartbeat", heartbeat);
 app.use("/test", test);
