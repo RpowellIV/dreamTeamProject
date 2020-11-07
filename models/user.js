@@ -42,14 +42,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN
         // allowNull defaults to true
     },
-    isEmployee: {
-        type: DataTypes.BOOLEAN
-        // allowNull defaults to true
-    },
     bio: {
         type: DataTypes.TEXT
         // allowNull defaults to true
     },
+    companyName: {
+      type: DataTypes.STRING
+      // allowNull defaults to true
+    },
+    likedJobs: {
+      type: DataTypes.STRING
+      // allowNull defaults to true
+    },
+    postedJobs: {
+      type: DataTypes.STRING
+      // allowNull defaults to true
+    }
 
 }, {
     sequelize,

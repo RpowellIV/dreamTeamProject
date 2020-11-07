@@ -26,17 +26,18 @@ router.post('/', async (req, res) => {
     console.log("Here")
     console.log(req.user.id);
     
-    const {isEmployer, bio} = req.body;
+    const {isEmployer, bio, companyName } = req.body;
 
     console.log(req.body)
-    console.log(isEmployer,bio)
+    console.log(isEmployer,bio,companyName)
 
     if(isEmployer==="false") {
         const user = await db.Users.update(
 
             {
                 isEmployer: false,
-                bio: bio
+                bio: bio,
+                companyName: null
             },
     
             { 
@@ -53,7 +54,8 @@ router.post('/', async (req, res) => {
 
             {
                 isEmployer: true,
-                bio: bio
+                bio: bio,
+                companyName: companyName
             },
     
             { 
@@ -65,9 +67,6 @@ router.post('/', async (req, res) => {
 
         res.render('pages/employer')
     }
-    // } else {
-    //     return console.error(err);
-    // }
 });
 
 
