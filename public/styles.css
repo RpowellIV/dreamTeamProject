@@ -15,3 +15,17 @@ img {
   width: 550px;
   height: 300px;
 }
+
+.job-search {
+  margin-right: 10px;
+}
+
+.email-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.notification-bell {
+  width: 3rem;
+  height: 3rem;
+}
