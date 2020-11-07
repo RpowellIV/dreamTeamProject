@@ -20,7 +20,7 @@
                 <button class="btn btn-outline-success my-2 my-sm-0 job-search" type="submit">
                     Search for Jobs
                 </button>
-                <a class="btn btn-danger" href="../auth/logout" role="button">Log-Out</a>
+
             </form>
             <img src="../../img/icon-email.png" alt="email-icon" class="email-icon" />
             <img src="../../img/notification-bell.png" alt="notification-bell" class="notification-bell" />
@@ -28,7 +28,18 @@
             <div class="current-time">
                 <h3><%= new Date().toLocaleTimeString();%></h3>
             </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="../auth/google">Login</a>
+                    <a class="dropdown-item" href="../auth/logout">Logout</a>
+                </div>
+            </div>
         </div>
+
     </nav>
     <br />
     <br />
