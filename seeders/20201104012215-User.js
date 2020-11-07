@@ -10,8 +10,10 @@ module.exports = {
       image: null,
       email: "humantorch@FF.com",
       isEmployer: false,
-      isEmployee: true,
       bio: "FLAME ON!",
+      companyName: null,
+      likedJobs: "1",
+      postedJobs: null,
       createdAt: new Date(),
       updatedAt: new Date()
         }], {});
