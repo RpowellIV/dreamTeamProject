@@ -37,6 +37,7 @@ router.post('/', async (req, res) => {
             {
                 isEmployer: false,
                 bio: bio,
+                companyName: null
             },
     
             { 

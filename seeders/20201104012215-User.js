@@ -12,7 +12,7 @@ module.exports = {
       isEmployer: false,
       bio: "FLAME ON!",
       companyName: null,
-      likedJobs: null,
+      likedJobs: "1",
       postedJobs: null,
       createdAt: new Date(),
       updatedAt: new Date()
