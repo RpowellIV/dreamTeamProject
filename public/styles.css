@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  background-color: cadetblue;
+}
 
 body {
   background-color: white;
@@ -17,8 +20,8 @@ img {
 }
 
 .jobbyist-logo {
-  width: 4rem;
-  height: 4rem;
+  width: 100px;
+  height: 100px;
 }
 
 .job-search {
@@ -60,4 +63,9 @@ img {
 
 .row {
   margin-left: 10px;
+}
+
+.form-center {
+  margin: auto;
+  width: 50%;
 }
