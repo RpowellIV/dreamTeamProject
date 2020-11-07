@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-color: #e8e8e8;
+  background-color: white;
 }
 
 .greeting {
@@ -19,7 +19,48 @@ img {
   height: 300px;
 }
 
-.img-logo{
-height: 100px;
-width: 100px;
+.jobbyist-logo {
+  width: 4rem;
+  height: 4rem;
+}
+
+.job-search {
+  margin-right: 10px;
+}
+
+.email-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.notification-bell {
+  width: 3rem;
+  height: 3rem;
+}
+
+.dashboard-pic {
+  width: 2rem;
+  height: 2rem;
+}
+.folder-pic {
+  width: 2rem;
+  height: 2rem;
+}
+.jobs-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tasks-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.settings-pic {
+  width: 2rem;
+  height: 2rem;
+}
+
+.row {
+  margin-left: 10px;
 }

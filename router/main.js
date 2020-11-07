@@ -1,16 +1,15 @@
-const express = require('express')
-const passport = require('../config/passport')
+const express = require("express");
+const passport = require("../config/passport");
 
-const router = express.Router()
+const router = express.Router();
 
-const ejs = require('ejs');
-
+const ejs = require("ejs");
 
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/')
+    res.redirect("/");
 }
 
 router.get("/", (req, res) => {
@@ -18,7 +17,7 @@ router.get("/", (req, res) => {
 });
 
 // Homepage
-router.get("/landingPage", (req, res) => {
+router.get("/landingPage", ensureAuthenticated, (req, res) => {
     // res.send(`<h1>Hello world from server</h1>
     // <a href="./auth/logout">Logout</a>
     // <h2>Req.session</h2>
@@ -28,17 +27,16 @@ router.get("/landingPage", (req, res) => {
     // res.send(`<h1>TEST</h1>`);
     // res.render('/dashbord');
     res.render("pages/landingPage");
-})
+});
 
 // Renders the dashboard for the employer
-router.get("/employer", (req, res) => {
+router.get("/employer", ensureAuthenticated, (req, res) => {
     res.render("pages/employer");
 });
 
 // Renders the dashboard for the employee
-router.get("/employee", (req, res) => {
+router.get("/employee", ensureAuthenticated, (req, res) => {
     res.render("pages/employee");
 });
 
-
-module.exports = router
+module.exports = router;
