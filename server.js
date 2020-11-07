@@ -59,6 +59,6 @@ app.use("/heartbeat", heartbeat);
 app.use("/test", test);
 app.use("/jobs", jobsRouter);
 
-app.listen(PORT, () => {
-  console.log(`The server at port ${PORT} is listening...`);
+app.listen(process.env.PORT || MYPORT, () => {
+  console.log(`The server is listening...`);
 });
