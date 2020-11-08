@@ -59,6 +59,8 @@ app.use("/heartbeat", heartbeat);
 app.use("/test", test);
 app.use("/jobs", jobsRouter);
 
+const MYPORT = 3000
+
 app.listen(process.env.PORT || MYPORT, () => {
   console.log(`The server is listening...`);
 });
