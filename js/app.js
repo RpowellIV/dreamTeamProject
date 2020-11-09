@@ -36,6 +36,7 @@ $().ready(() => {
                                         <p>${job.location}</p>
                                     </div>
                                     <div class="modal-footer">
+                                        <button type="button" id="add-job" class="btn btn-default">Add Job</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
@@ -49,6 +50,13 @@ $().ready(() => {
                     </div>
                 `)
             }
+            
         })
+        $('#add-job').click((e) => {
+            e.preventDefault()
+            console.log('hello')
+        }) 
     }
 })
+
+
