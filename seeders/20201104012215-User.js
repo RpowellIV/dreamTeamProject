@@ -16,7 +16,7 @@ module.exports = {
         image: faker.image.image(),
         email: faker.internet.email(),
         isEmployer: faker.random.boolean(),
-        bio: faker.lorem.sentences(),
+        bio: faker.company.catchPhrase(),
         companyName: faker.company.companyName(),
         likedJobs: faker.random.number(),
         postedJobs: faker.random.number(),
