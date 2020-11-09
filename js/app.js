@@ -9,6 +9,7 @@ $().ready(() => {
     })
 
     let renderJobs = (jobTitles) => {
+        $("#jobs-container").empty()
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
         jobTitles.map((job) => {

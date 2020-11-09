@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
     console.log(req.body)
     console.log(isEmployer,bio,companyName)
 
-    if(isEmployer==="false") {
+    if(isEmployer==='false') {
         const user = await db.Users.update(
 
             {
