@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Jobs.belongsTo(models.Users)
+      // Jobs.hasMany(models.Users)
     }
   };
   Jobs.init({
@@ -22,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     numApplied: DataTypes.INTEGER,
-    whoApplied: DataTypes.STRING
+    whoApplied: DataTypes.STRING ,
+      
   }, {
     sequelize,
     modelName: 'Jobs',
