@@ -1,8 +1,34 @@
 'use strict';
 
+const faker = require('faker');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Jobs', [{
+    let data = [];
+    let amount = 50;
+
+    while (amount--) {
+      data.push({
+        title: faker.name.jobTitle(),
+        companyName: faker.company.companyName(),
+        description: faker.lorem.sentences(),
+        email: faker.internet.email(),
+        location: faker.address.streetAddress(),
+        city: faker.address.city(),
+        state: faker.address.state(),
+        numApplied: faker.random.number(),
+        whoApplied: faker.random.number({
+          'min': 1,
+          'max': 60
+        }),
+        createdAt: new Date(),
+        updatedAt: new Date()
+
+
+
+      });
+    }
+    return queryInterface.bulkInsert('Jobs', data, [{
       title: "Member of Fantastic Four",
       companyName: "Future Foundation",
       description: "Must be able to safely burst into flames",
@@ -14,7 +40,7 @@ module.exports = {
       whoApplied: null,
       createdAt: new Date(),
       updatedAt: new Date()
-        }], {});
+    }], {});
   },
 
   down: async (queryInterface, Sequelize) => {

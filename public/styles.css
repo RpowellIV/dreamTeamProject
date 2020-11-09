@@ -1,24 +1,53 @@
-* {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+:root {
+  --primary-color: #047aed;
+  --secondary-color: #1c3fa8;
+  --dark-color: #002240;
+  --light-color: #f4f4f4;
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.card{
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+}
+.card-img-top {
+  margin: auto;
+}
+.card-form {
+  width: 100%;
 }
 
 .greeting {
   font: bold;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-img {
-  width: 550px;
-  height: 300px;
-}
+/* img {
+  width: 50%;
+} */
 
 .jobbyist-logo {
-  width: 4rem;
-  height: 4rem;
+  width: 100px;
+  height: 100px;
 }
 
 .job-search {
@@ -60,4 +89,9 @@ img {
 
 .row {
   margin-left: 10px;
+}
+
+.form-center {
+  margin: auto;
+  width: 100%;
 }
