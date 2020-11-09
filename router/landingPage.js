@@ -24,7 +24,7 @@ router.get("/",ensureAuthenticated, (req, res) => {
 router.post('/', async (req, res) => {
 
     console.log("Here")
-    // console.log(req.user.id);
+    console.log(req.user.id);
     
     const {isEmployer, bio, companyName } = req.body;
 
