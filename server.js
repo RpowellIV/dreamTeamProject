@@ -10,8 +10,22 @@ const ejs = require('ejs');
 const authRouter = require('./router/auth')
 const mainRouter = require('./router/main')
 const landingPage = require('./router/landingPage')
-const { User } = require('./models');
+const { Users, Jobs, userJobs } = require('./models');
 // require('./auth/passport-setup');
+const db = require('./models');
+
+const sync = () => {
+  return db.sequelize.sync({force: true});
+};
+
+sync()
+.then( () => console.log('synched!'))
+.catch( e => console.log(e));
+
+
+userJobs.belongsTo(Jobs);
+userJobs.belongsTo(Users);
+
 
 const {
   DB_LOCAL,
@@ -25,7 +39,8 @@ const app = express();
 
 const heartbeat = require("./router/heartBeat");
 const test = require("./router/apiTest");
-const { router: jobsRouter } = require("./router/jobs")
+const { router: jobsRouter } = require("./router/jobs");
+const { BelongsTo } = require('sequelize');
 
 app.use(bodyParser.json());
 
