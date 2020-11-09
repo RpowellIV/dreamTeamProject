@@ -9,7 +9,7 @@ module.exports = {
 
     while (amount--) {
       data.push({
-        title: faker.company.catchPhrase(),
+        title: faker.name.jobTitle(),
         companyName: faker.company.companyName(),
         description: faker.lorem.sentences(),
         email: faker.internet.email(),
@@ -17,7 +17,10 @@ module.exports = {
         city: faker.address.city(),
         state: faker.address.state(),
         numApplied: faker.random.number(),
-        whoApplied: faker.internet.userName(),
+        whoApplied: faker.random.number({
+          'min': 1,
+          'max': 60
+        }),
         createdAt: new Date(),
         updatedAt: new Date()
 

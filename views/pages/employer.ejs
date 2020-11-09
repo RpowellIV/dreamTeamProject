@@ -9,37 +9,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
-            <img src="../../img/jobbyist-logo.png" alt="jobbyist-logo" class="jobbyist-logo" />
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <img src="../../img/jobbyist-logo.png" alt="jobbyist-logo" class="jobbyist-logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
+                <li class="nav-item">
+                    <a class="nav-link" href="../employer">Employer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../employee">Employee</a>
+                </li>
+
+
+            </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success my-2 my-sm-0 job-search" type="submit">
-                    Search for Jobs
-                </button>
-
+                <input id="search-bar" class="form-control mr-sm-2" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="../auth/logout">Logout</a>
             </form>
-            <img src="../../img/icon-email.png" alt="email-icon" class="email-icon" />
-            <img src="../../img/notification-bell.png" alt="notification-bell" class="notification-bell" />
-
-            <div class="current-time">
-                <h3><%= new Date().toLocaleTimeString();%></h3>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="../auth/google">Login</a>
-                    <a class="dropdown-item" href="../auth/logout">Logout</a>
-                </div>
-            </div>
         </div>
-
     </nav>
     <br />
     <br />
