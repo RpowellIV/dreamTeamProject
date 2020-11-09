@@ -14,13 +14,21 @@ const { Users, Jobs, userJobs } = require('./models');
 // require('./auth/passport-setup');
 const db = require('./models');
 
-const sync = () => {
-  return db.sequelize.sync({force: true});
-};
+// const sync = () => {
+//   return db.sequelize.sync({force: true});
+// };
 
-sync()
-.then( () => console.log('synched!'))
-.catch( e => console.log(e));
+// sync()
+// .then( () => console.log('synched!'))
+// .catch( e => console.log(e));
+
+// const seed = () => {
+//   return db.sequelize.seed({force: true});
+// };
+
+// seed()
+// .then( () => console.log('seeded!'))
+// .catch( e => console.log(e));
 
 
 userJobs.belongsTo(Jobs);
