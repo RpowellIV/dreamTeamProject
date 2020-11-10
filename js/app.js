@@ -9,18 +9,18 @@ $().ready(() => {
     })
 
     let renderJobs = (jobTitles) => {
-        // $("#jobs-container").empty()
+        $("#jobs-container").empty()
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
         jobTitles.map((job) => {
             if(job.title.toLowerCase().includes(searchVal)) {
                 $("#jobs-container").append(`
                     <div class="job">
-                        <div class="card" style="width: 100%;">
+                        <div class="card" style="width: 60%;margin: auto;margin-bottom: 25px;">
                             <h3>${job.title} - ${job.city}, ${job.state}</h3>
                             <p><sub>${job.companyName}</sub></p>
                             <p id="descText">${job.description}</p>
-                            <button type="button" class="btn btn-info btn-lg" id="jobModalBtn">Read More</button>
+                            <button type="button" class="btn btn-info btn-sm" id="jobModalBtn" style="width: 35%; margin: auto;">Read More</button>
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="jobModal" role="dialog">
@@ -53,10 +53,6 @@ $().ready(() => {
             }
             
         })
-        $('#add-job').click((e) => {
-            e.preventDefault()
-            console.log('hello')
-        }) 
     }
 })
 
