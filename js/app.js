@@ -32,7 +32,7 @@ let renderJobs = (jobTitles) => {
                 console.log(count)
                 $("#jobs-container").append(`
                     <div class="job">
-                        <div class="card" style="width: 60%;margin: auto;margin-bottom: 25px;">
+                        <div class="card" style="width: 60%;margin: auto;margin-top: 25px;">
                             <h3>${job.title} - ${job.city}, ${job.state}</h3>
                             <p><sub>${job.companyName}</sub></p>
                             <p id="descText">${job.description}</p>
@@ -76,6 +76,7 @@ let renderJobs = (jobTitles) => {
         })
 
     }
+
 
     
     let renderOutsideJobs = (jobTitles) => {
@@ -143,6 +144,7 @@ let renderJobs = (jobTitles) => {
         })
 
     }
+
     
 })
 
