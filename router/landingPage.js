@@ -4,7 +4,6 @@ const pgp = require("pg-promise")();
 const router = express();
 const db = require('../models');
 
-
 // router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }));
 

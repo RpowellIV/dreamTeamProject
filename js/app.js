@@ -44,7 +44,7 @@ $().ready(() => {
                                     <div class="modal-footer">
 
 
-                                        <form action="" method="POST">
+                                        <form class="jobForm"action="" method="POST">
                                             <button formmethod="POST" value="${job.id}" type="submit" id="addJob" name="addJob" class="btn btn-default">Add Job</button>
                                         </form>
 
