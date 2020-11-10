@@ -11,6 +11,9 @@ const authRouter = require('./router/auth')
 const mainRouter = require('./router/main')
 const landingPage = require('./router/landingPage')
 const { Users, Jobs, userJobs } = require('./models');
+var cors = require('cors')
+
+
 // require('./auth/passport-setup');
 const db = require('./models');
 
@@ -52,6 +55,7 @@ const test = require("./router/apiTest");
 const { router: jobsRouter } = require("./router/jobs");
 const { BelongsTo } = require('sequelize');
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

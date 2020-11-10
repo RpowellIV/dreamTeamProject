@@ -1,52 +1,65 @@
 const express = require('express');
+const router = express.Router();
 const bodyParser = require('body-parser');
-const pgp = require("pg-promise")();
-const router = express();
-const db = require('../models');
-const jobs = require('./jobs');
 
+const db = require('../models');
+
+
+// router.use('/', express.static(__dirname + '../views/pages'));
 
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }));
 
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/')
-}
+// router.get("/", async (req, res) => {
+//     const jobs = await db.findAll({
+//         attributes: ['id', 'title', 'companyName', 'description', 'email', 'city', 'state', 'location']
+//     })
+//     res.json({
+//         is: "working", 
+//         jobs
+//     })
 
-// Homepage
-router.get("/",ensureAuthenticated, (req, res) => {
-    res.render("/");
-})
+// })
 
 router.post('/', async (req, res) => {
 
     console.log("Here")
     console.log(req.user.id);
     
-    const {addJob} = req.body;
+    const { outJob } = req.body;
 
     console.log(req.body)
-    // console.log(addJob)
+    console.log(outJob)
 
     
+    const Jobs = await db.Jobs.create(
+
+            {
+                title: outJob.title,
+                companyName: outJob.company,
+                description: outJob.description,
+                email: outJob.email,
+                location: outJob.location
+            },{}
+        )
+
     const userJobs = await db.userJobs.create(
 
             {
                 hasBoth: "yes",
-                JobID: addJob,
-                UserID: req.user.id
+                JobId: parseInt(outJob),
+                UserId: req.user.id
             },{}
         )
+        
         res.json({
             is: "working", 
-            jobs
+            userJobs,
+            Jobs
         })
+
     } 
 );
 
-
-module.exports = router;
+module.exports = {router};

@@ -1,15 +1,82 @@
 $().ready(() => {
     $('#search-btn').click((e) => {
         e.preventDefault();
-        fetch('/jobs')
-            .then(response => response.json())
-            .then((data) => {
-                renderJobs(data.jobs)
-            })
+        
+        async function getJobs() {
+            let inJob = await fetch('/jobs')
+                .then(response => response.json())
+                .then(data => renderJobs(data.jobs))
+                .catch(err => console.log(err));
+            let outJobs = await fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=1a7900be&app_key=048ee3db8a73b77acbe51da7d0ba6e85&results_per_page=50&what=${$('#search-bar').val()}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    renderOutsideJobs(data.results)
+                })
+                .catch(err => console.log(err));
+        }
+
+        getJobs();
     })
 
     let renderJobs = (jobTitles) => {
-        $("#jobs-container").empty()
+        $("#jobs-container-out").empty()
+        let searchVal = $('#search-bar').val();
+        searchVal.toLowerCase();
+        jobTitles.map((job) => {
+            if(job.title.toLowerCase().includes(searchVal)) {
+                let jobID = job.id;
+                console.log(jobID)
+                $("#jobs-container-out").append(`
+                    <div class="job">
+                        <div class="card" style="width: 60%;margin: auto;margin-bottom: 25px;">
+                            <h3>${job.title} - ${job.location}</h3>
+                            <p><sub>${job.company}</sub></p>
+                            <p id="descText">${job.description}</p>
+                            <button type="button" class="btn btn-info btn-sm" id="jobModalBtn" style="width: 35%; margin: auto;">Read More</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="jobModal" role="dialog">
+                            <div class="modal-dialog"> 
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">${job.title}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><sub>${job.company}</sub></p>
+                                        <p>${job.description}</p>
+                                        <p><sub>${job.email}</sub></p>
+                                        <p>${job.location}</p>
+                                    </div>
+                                    <div class="modal-footer">
+
+
+                                        <form action="/jobs" method="POST">
+                                            <button formmethod="POST" value="${job.id}" type="submit" id="addJob" name="addJob" class="btn btn-default">Add Job</button>
+                                        </form>
+
+
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        $('#jobModalBtn').click((e) => {
+                            $('#jobModal').modal();
+                        })
+                        </script>
+                    </div>`
+                )
+            }     
+
+        })
+
+    }
+
+    
+    let renderOutsideJobs = (jobTitles) => {
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
         jobTitles.map((job) => {
@@ -41,12 +108,8 @@ $().ready(() => {
                                     <div class="modal-footer">
 
 
-<<<<<<< HEAD
-                                        <form class="jobForm"action="" method="POST">
-=======
-                                        <form action="/jobs" method="POST">
->>>>>>> development
-                                            <button formmethod="POST" value="${job.id}" type="submit" id="addJob" name="addJob" class="btn btn-default">Add Job</button>
+                                        <form action="/addJob" method="POST">
+                                            <button formmethod="POST" value="${job}" type="submit" id="outJob" name="outJob" class="btn btn-default">Add Job</button>
                                         </form>
 
 
@@ -60,31 +123,14 @@ $().ready(() => {
                             $('#jobModal').modal();
                         })
                         </script>
-                    </div>
-                `)
+                    </div>`
+                )
             }     
-//             const button = document.getElementById('add-job');
-//             button.addEventListener('click', async _ => {
-//                 try {     
-//                     const response = await fetch('/addJob', {
-//                     method: 'post',
-//                     body: {
-//                         jobID
-//                     }
-//                 });
-//             console.log('Completed!', response);
-//         } catch(err) {
-//         console.error(`Error: ${err}`);
-//     }
-// });
+
         })
 
     }
     
 })
-
-// let addNewJob = (jobID) => {
-//     $.post("addJob.js", {JobID: jobID});
-// }
 
 
