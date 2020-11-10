@@ -22,6 +22,7 @@ const db = require('./models');
 // .then( () => console.log('synched!'))
 // .catch( e => console.log(e));
 
+
 // const seed = () => {
 //   return db.sequelize.seed({force: true});
 // };
@@ -29,6 +30,7 @@ const db = require('./models');
 // seed()
 // .then( () => console.log('seeded!'))
 // .catch( e => console.log(e));
+
 
 
 userJobs.belongsTo(Jobs);
