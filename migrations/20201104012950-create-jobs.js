@@ -34,13 +34,6 @@ module.exports = {
       },
       whoApplied: {
         type: Sequelize.STRING,
-        // onDelete: 'CASCADE',
-        // references: {
-        //         model: 'Users',
-        //         key: 'id',
-        //         as: 'whoApplied'
-        //       }
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
