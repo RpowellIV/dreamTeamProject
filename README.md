@@ -11,7 +11,7 @@ Jobbyist is a job posting app geared toward those who would like to be payed for
 
 Want to learn how to play the guitar? Check out Jobbyist! Want to teach people how to skydive? Make a post on Jobbyist!
 
-Jobbyist will be hosted and deployed by Heroku at (insert url here)
+Jobbyist will be hosted and deployed by Heroku at (https://mighty-inlet-78570.herokuapp.com/)
 
 ---
 
