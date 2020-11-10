@@ -1,3 +1,6 @@
+
+
+
 $().ready(() => {
     $('#search-btn').click((e) => {
         e.preventDefault();
@@ -14,6 +17,8 @@ $().ready(() => {
         searchVal.toLowerCase();
         jobTitles.map((job) => {
             if(job.title.toLowerCase().includes(searchVal)) {
+                let jobID = job.id;
+                console.log(jobID)
                 $("#jobs-container").append(`
                     <div class="job">
                         <div class="card" style="width: 60%;margin: auto;margin-bottom: 25px;">
@@ -37,7 +42,13 @@ $().ready(() => {
                                         <p>${job.location}</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" id="add-job" class="btn btn-default">Add Job</button>
+
+
+                                        <form action="" method="POST">
+                                            <button formmethod="POST" value="${job.id}" type="submit" id="addJob" name="addJob" class="btn btn-default">Add Job</button>
+                                        </form>
+
+
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
@@ -50,10 +61,29 @@ $().ready(() => {
                         </script>
                     </div>
                 `)
-            }
-            
+            }     
+//             const button = document.getElementById('add-job');
+//             button.addEventListener('click', async _ => {
+//                 try {     
+//                     const response = await fetch('/addJob', {
+//                     method: 'post',
+//                     body: {
+//                         jobID
+//                     }
+//                 });
+//             console.log('Completed!', response);
+//         } catch(err) {
+//         console.error(`Error: ${err}`);
+//     }
+// });
         })
+
     }
+    
 })
+
+// let addNewJob = (jobID) => {
+//     $.post("addJob.js", {JobID: jobID});
+// }
 
 
