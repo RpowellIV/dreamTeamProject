@@ -23,6 +23,16 @@ const db = require('./models');
 // .catch( e => console.log(e));
 
 
+// const seed = () => {
+//   return db.sequelize.seed({force: true});
+// };
+
+// seed()
+// .then( () => console.log('seeded!'))
+// .catch( e => console.log(e));
+
+
+
 userJobs.belongsTo(Jobs);
 userJobs.belongsTo(Users);
 
