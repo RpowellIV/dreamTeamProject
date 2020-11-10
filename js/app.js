@@ -1,6 +1,7 @@
 $().ready(() => {
     $('#search-btn').click((e) => {
         e.preventDefault();
+        // window.location.href = "/"
         fetch('/jobs')
             .then(response => response.json())
             .then((data) => {
@@ -12,20 +13,23 @@ $().ready(() => {
         $("#jobs-container").empty()
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
+        let count = 0;
         jobTitles.map((job) => {
             if(job.title.toLowerCase().includes(searchVal)) {
                 let jobID = job.id;
                 console.log(jobID)
+                count += 1;
+                console.log(count)
                 $("#jobs-container").append(`
                     <div class="job">
                         <div class="card" style="width: 60%;margin: auto;margin-bottom: 25px;">
                             <h3>${job.title} - ${job.city}, ${job.state}</h3>
                             <p><sub>${job.companyName}</sub></p>
                             <p id="descText">${job.description}</p>
-                            <button type="button" class="btn btn-info btn-sm" id="jobModalBtn" style="width: 35%; margin: auto;">Read More</button>
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#jobModal-${count}" id="jobModalBtn-${count}" style="width: 35%; margin: auto;">Read More</button>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="jobModal" role="dialog">
+                        <div class="modal fade" id="jobModal-${count}" role="dialog">
                             <div class="modal-dialog"> 
                                 <!-- Modal content-->
                                 <div class="modal-content">
@@ -51,36 +55,20 @@ $().ready(() => {
                                 </div>
                             </div>
                         </div>
-                        <script>
-                        $('#jobModalBtn').click((e) => {
-                            $('#jobModal').modal();
+                        
+                    </div>
+                    <script>
+                        $('#jobModalBtn-${count}').click((e) => {
+                            $('#jobModal-${count}').modal();
                         })
                         </script>
-                    </div>
                 `)
-            }     
-//             const button = document.getElementById('add-job');
-//             button.addEventListener('click', async _ => {
-//                 try {     
-//                     const response = await fetch('/addJob', {
-//                     method: 'post',
-//                     body: {
-//                         jobID
-//                     }
-//                 });
-//             console.log('Completed!', response);
-//         } catch(err) {
-//         console.error(`Error: ${err}`);
-//     }
-// });
+                
+            }   
         })
 
     }
     
 })
-
-// let addNewJob = (jobID) => {
-//     $.post("addJob.js", {JobID: jobID});
-// }
 
 
