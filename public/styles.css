@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
 :root {
   --primary-color: #047aed;
@@ -15,10 +15,10 @@
   padding: 0;
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-.card{
+.card {
   background-color: #fff;
   color: #333;
   border-radius: 10px;
@@ -26,11 +26,16 @@ body {
   padding: 20px;
   margin: 10px;
 }
+
 .card-img-top {
-  margin: auto;
+  width: 600px;
+  height: 400px;
+  max-width: 100%;
+  height: auto;
 }
 .card-form {
-  width: 100%;
+  width: 50%;
+  margin: auto;
 }
 
 .greeting {
@@ -40,10 +45,6 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
-/* img {
-  width: 50%;
-} */
 
 .jobbyist-logo {
   width: 100px;
