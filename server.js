@@ -11,6 +11,9 @@ const authRouter = require('./router/auth')
 const mainRouter = require('./router/main')
 const landingPage = require('./router/landingPage')
 const { Users, Jobs, userJobs } = require('./models');
+var cors = require('cors')
+
+
 // require('./auth/passport-setup');
 const db = require('./models');
 
@@ -50,8 +53,11 @@ const app = express();
 const heartbeat = require("./router/heartBeat");
 const test = require("./router/apiTest");
 const { router: jobsRouter } = require("./router/jobs");
+const { router: userJobsRouter } = require("./router/userJobs")
 const { BelongsTo } = require('sequelize');
+const { response } = require('express');
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -84,6 +90,7 @@ app.set("view engine", "ejs");
 app.use("/heartbeat", heartbeat);
 app.use("/test", test);
 app.use("/jobs", jobsRouter);
+app.use("/userJobs", userJobsRouter);
 
 const MYPORT = 3000
 
