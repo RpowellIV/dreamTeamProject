@@ -36,8 +36,8 @@ router.post('/', async (req, res) => {
 
             {
                 hasBoth: "yes",
-                JobID: addJob,
-                UserID: req.user.id
+                JobId: parseInt(addJob),
+                UserId: req.user.id
             },{}
         )
         res.json({
