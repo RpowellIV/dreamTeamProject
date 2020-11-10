@@ -1,52 +1,65 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const pgp = require("pg-promise")();
-const router = express();
-const db = require('../models');
-const jobs = require('./jobs');
+// const express = require('express');
+// const router = express.Router();
+// const bodyParser = require('body-parser');
+
+// const db = require('../models');
 
 
-router.use(bodyParser.json())
-router.use(bodyParser.urlencoded({ extended: false }));
+// // router.use('/', express.static(__dirname + '../views/pages'));
+
+// router.use(bodyParser.json())
+// router.use(bodyParser.urlencoded({ extended: false }));
 
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/')
-}
+// // router.get("/", async (req, res) => {
+// //     const jobs = await db.findAll({
+// //         attributes: ['id', 'title', 'companyName', 'description', 'email', 'city', 'state', 'location']
+// //     })
+// //     res.json({
+// //         is: "working", 
+// //         jobs
+// //     })
 
-// Homepage
-router.get("/",ensureAuthenticated, (req, res) => {
-    res.render("/");
-})
+// // })
 
-router.post('/', async (req, res) => {
+// router.post('/', async (req, res) => {
 
-    console.log("Here")
-    console.log(req.user.id);
+//     console.log("Here")
+//     console.log(req.user.id);
     
-    const {addJob} = req.body;
+//     const { outJob } = req.body;
 
-    console.log(req.body)
-    // console.log(addJob)
+//     console.log(req.body)
+//     console.log(outJob)
 
     
-    const userJobs = await db.userJobs.create(
+//     const Jobs = await db.Jobs.create(
 
-            {
-                hasBoth: "yes",
-                JobID: addJob,
-                UserID: req.user.id
-            },{}
-        )
-        res.json({
-            is: "working", 
-            jobs
-        })
-    } 
-);
+//             {
+//                 title: outJob.title,
+//                 companyName: outJob.company,
+//                 description: outJob.description,
+//                 email: outJob.email,
+//                 location: outJob.location
+//             },{}
+//         )
 
+//     const userJobs = await db.userJobs.create(
 
-module.exports = router;
+//             {
+//                 hasBoth: "yes",
+//                 JobId: parseInt(outJob),
+//                 UserId: req.user.id
+//             },{}
+//         )
+        
+//         res.json({
+//             is: "working", 
+//             userJobs,
+//             Jobs
+//         })
+
+//     } 
+// );
+
+// module.exports = {router};
