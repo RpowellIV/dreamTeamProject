@@ -27,5 +27,10 @@ router.get("/employee", ensureAuthenticated, (req, res) => {
     res.render("pages/employee");
 });
 
+// Renders the dashboard for the employee/employer
+router.get("/home", ensureAuthenticated, (req, res) => {
+    res.render("pages/home");
+});
+
 
 module.exports = router;
