@@ -53,6 +53,7 @@ const { router: jobsRouter } = require("./router/jobs");
 const { BelongsTo } = require('sequelize');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // setup sessions with cookies
 app.use(

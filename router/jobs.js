@@ -22,15 +22,15 @@ router.post('/', async (req, res) => {
     const {addJob} = req.body;
 
     console.log(req.body)
-    // console.log(addJob)
+    console.log(addJob)
 
     
     const userJobs = await db2.create(
 
             {
                 hasBoth: "yes",
-                JobID: addJob,
-                UserID: req.user.id
+                JobId: parseInt(addJob),
+                UserId: req.user.id
             },{}
         )
         res.json({
