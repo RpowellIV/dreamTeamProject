@@ -42,6 +42,9 @@
   <br />
   <br />
   <div class="greeting">
+    <% if (user) { %>
+    <h2><%= user.name %></h2>
+    <% } %>
     <h3>Let's work together</h3>
     <p>First tell us a little about yourself</p>
     <br />
