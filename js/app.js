@@ -1,7 +1,6 @@
 $().ready(() => {
     $('#search-btn').click((e) => {
         e.preventDefault();
-        
         async function getJobs() {
             let inJob = await fetch('/jobs')
                 .then(response => response.json())
@@ -15,10 +14,8 @@ $().ready(() => {
                 })
                 .catch(err => console.log(err));
         }
-
         getJobs();
     })
-
 let renderJobs = (jobTitles) => {
         $("#jobs-container").empty()
         let searchVal = $('#search-bar').val();
@@ -40,7 +37,7 @@ let renderJobs = (jobTitles) => {
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="jobModal-${count}" role="dialog">
-                            <div class="modal-dialog"> 
+                            <div class="modal-dialog">
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -53,17 +50,14 @@ let renderJobs = (jobTitles) => {
                                         <p>${job.location}</p>
                                     </div>
                                     <div class="modal-footer">
-
                                         <form action="/jobs" method="POST">
                                             <button formmethod="POST" value="${job.id}" type="submit" id="addJob" name="addJob" class="btn btn-default">Add Job</button>
                                         </form>
-
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                     <script>
                         $('#jobModalBtn-${count}').click((e) => {
@@ -71,14 +65,9 @@ let renderJobs = (jobTitles) => {
                         })
                         </script>
                 `)
-                
-            }   
+            }
         })
-
     }
-
-
-    
     let renderOutsideJobs = (jobTitles) => {
         $("#jobs-container-out").empty()
         let searchVal = $('#search-bar').val();
@@ -101,7 +90,7 @@ let renderJobs = (jobTitles) => {
                         </div>
                         <!-- Modal -->
                         <div class="modal fade" id="jobModal2-${count}" role="dialog">
-                            <div class="modal-dialog"> 
+                            <div class="modal-dialog">
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -114,8 +103,6 @@ let renderJobs = (jobTitles) => {
                                         <p>${job.location.display_name}</p>
                                     </div>
                                     <div class="modal-footer">
-
-
                                     <form action="/jobs" method="POST">
                                         <button formmethod="POST" value="${job.id}" type="submit" id="outJob" name="outJob" class="btn btn-default">Add Job</button>
                                         <input type="hidden" name="jCompany" value="${job.company.display_name}">
@@ -126,26 +113,18 @@ let renderJobs = (jobTitles) => {
                                         <input type="hidden" name="jState" value="${job.location.area[1]}">
                                         <input type="hidden" name="jCity" value="${job.location.area[3]}">
                                     </form>
-
-
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
-                    </div> 
+                    </div>
                         <script>
                         $('#jobModalBtn2-${count}').click((e) => {
                             $('#jobModal2-${count}').modal();
                         })
                     </script>`
                 )
-            }     
-
+            }
         })
-
     }
-
-    
 })
-
-
