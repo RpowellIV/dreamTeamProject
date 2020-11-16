@@ -7,6 +7,7 @@ const db2 = require('../models').userJobs;
 // router.use('/', express.static(__dirname + '../views/pages'));
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }));
+
 router.get("/", async (req, res) => {
     const jobs = await db.findAll({
         attributes: ['id', 'title', 'companyName', 'description', 'email', 'city', 'state', 'location']
@@ -16,36 +17,56 @@ router.get("/", async (req, res) => {
         jobs
     })
 })
-// router.post('/employerjob', async (req, res) => {
-//     try {
-//         const {
-//             jCompany,
-//             jAbout,
-//             jUrl,
-//             jLocation,
-//             jState,
-//             jCity,
-//             jTitle } = req.body;
-//         await db.create(
-//             {
-//                 title: jTitle,
-//                 companyName: jCompany,
-//                 description: jAbout,
-//                 email: jUrl,
-//                 location: jLocation,
-//                 city: jCity,
-//                 state: jState,
-//                 numApplied: null,
-//                 whoApplied: null
-//             }, {}
-//         )
-//         res.render("pages/employer")
-//         // res.redirect('/employer')
-//     } catch (err) {
-//         console.error(err)
-//         res.render('error/500')
-//     }
-// })
+
+
+router.get("/matchJob/:id", async (req, res) => {
+    
+    const matchedId = req.params.id
+    console.log(matchedId)
+
+    const jobFind = await db.findByPk({
+        attributes: ['title', 'companyName', 'description', 'email', 'city', 'state', 'location'],
+        
+    }, {
+        where:  matchedId === 'id'
+        // include: 
+    })
+    res.json({
+        is: "working", 
+        jobFind
+    })
+})
+
+router.post('/employerjob', async (req, res) => {
+    try {
+        const {
+            jCompany,
+            jAbout,
+            jUrl,
+            jLocation,
+            jState,
+            jCity,
+            jTitle } = req.body;
+        await db.create(
+            {
+                title: jTitle,
+                companyName: jCompany,
+                description: jAbout,
+                email: jUrl,
+                location: jLocation,
+                city: jCity,
+                state: jState,
+                numApplied: null,
+                whoApplied: null
+            }, {}
+        )
+        res.render("pages/employer")
+        // res.redirect('/employer')
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
 router.post('/', async (req, res) => {
     console.log("Here")
     console.log(req.user.id);
@@ -81,5 +102,6 @@ router.post('/', async (req, res) => {
             UserId: req.user.id
         }, {}
     )
+
 });
 module.exports = { router };
