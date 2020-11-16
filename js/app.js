@@ -18,6 +18,7 @@ $().ready(() => {
     })
 let renderJobs = (jobTitles) => {
         $("#jobs-container").empty()
+        $("#mainPic").remove()
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
         let count = 0;
@@ -70,6 +71,7 @@ let renderJobs = (jobTitles) => {
     }
     let renderOutsideJobs = (jobTitles) => {
         $("#jobs-container-out").empty()
+        $("#mainPic").remove()
         let searchVal = $('#search-bar').val();
         searchVal.toLowerCase();
         let count = 0;
