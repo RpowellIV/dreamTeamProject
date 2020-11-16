@@ -9,7 +9,7 @@ router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get("/", async (req, res) => {
-    const jobs = await db.findAll({
+    const jobs = await db.findOne({
         attributes: ['id', 'title', 'companyName', 'description', 'email', 'city', 'state', 'location']
     })
     res.json({
@@ -24,18 +24,35 @@ router.get("/matchJob/:id", async (req, res) => {
     const matchedId = req.params.id
     console.log(matchedId)
 
-    const jobFind = await db.findByPk({
+    const jobFind = await db.findAll({
         attributes: ['title', 'companyName', 'description', 'email', 'city', 'state', 'location'],
         
     }, {
-        where:  matchedId === 'id'
-        // include: 
+        where:  matchedId === 'id',
+        include: {model: db2, as: "userJobs"}
     })
+    // console.log(jobFind[0])
+    console.log(jobFind[0].companyName)
+    // console.log(jobFind[0])
+    // const jobFind = await db.findAll({
+    //     include:[
+    //         {
+    //             model: db2, 
+    //             as:'userJobs',
+    //             through: {attributes: []}
+    //         }],
+    //     where:{
+    //         id: matchedId   
+    //     }
+    // })
+//     const jobFind = await db.findOne( { where: { id: matchedId }, include: [ db2] } )
+    
     res.json({
         is: "working", 
         jobFind
     })
 })
+
 
 router.post('/employerjob', async (req, res) => {
     try {

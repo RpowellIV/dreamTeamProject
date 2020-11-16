@@ -14,39 +14,23 @@ $().ready(() => {
                 jobIds.map((id) => {
                     return fetch(`jobs/matchJob/${id}`)
                         .then(response => response.json())
-            })).then(jobs => console.log(jobs))
+                        })).then(jobs => {
+                            console.log(jobs)
+                            console.log(typeof jobs)
+                            console.log(Object.keys(jobs).length)
+                            for(let i=0; i<Object.keys(jobs).length; i++){
+                            $("#added-jobs").append(`
+                                <div class="job">
+                                    <div class="card" style="width: 60%;margin: auto;margin-top: 25px;">
+                                        <h3>${jobs.title} - ${jobs.city}, ${jobs.state}</h3>
+                                        <p><sub>${jobs.companyName}</sub></p>
+                                        <p id="descText">${jobs.description}</p>
+                                    </div>
+                                </div>`)
+                            }
+            })
            
         })
 
 
     })
-//     let findJobs = (jobIdArray) => {
-//         fetch('/job/matchJob')
-//             .then(response => response.json())
-//             .then((data) => {
-//                 renderJobs(data.jobs, jobIdArray)
-                
-//             })
-//     }
-
-//     let renderJobs = (jobsArray, idArray) => {
-//         let index = 0;
-
-//         jobsArray.forEach((job) => {
-//             if(job.id === idArray[index]){
-
-//                 index++;
-                
-//                 $("#added-jobs").append(`
-//                     <div class="job">
-//                         <div class="card" style="width: 60%;margin: auto;margin-top: 25px;">
-//                             <h3>${job.title} - ${job.city}, ${job.state}</h3>
-//                             <p><sub>${job.companyName}</sub></p>
-//                             <p id="descText">${job.description}</p>
-//                         </div>
-//                     </div>
-//                 `)  
-//             }
-//         })
-//     }
-// })
