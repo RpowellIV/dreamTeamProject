@@ -22,39 +22,39 @@ router.get("/", async (req, res) => {
 
 })
 
-router.post('/employerjob', async (req, res) => {
-    try {
-        const {
+// router.post('/employerjob', async (req, res) => {
+//     try {
+//         const {
 
-            jCompany,
-            jAbout,
-            jUrl,
-            jLocation,
-            jState,
-            jCity,
-            jTitle } = req.body;
+//             jCompany,
+//             jAbout,
+//             jUrl,
+//             jLocation,
+//             jState,
+//             jCity,
+//             jTitle } = req.body;
 
-        await db.create(
+//         await db.create(
 
-            {
-                title: jTitle,
-                companyName: jCompany,
-                description: jAbout,
-                email: jUrl,
-                location: jLocation,
-                city: jCity,
-                state: jState,
-                numApplied: null,
-                whoApplied: null
-            }, {}
-        )
-        res.render("pages/employer")
-        // res.redirect('/employer')
-    } catch (err) {
-        console.error(err)
-        res.render('error/500')
-    }
-})
+//             {
+//                 title: jTitle,
+//                 companyName: jCompany,
+//                 description: jAbout,
+//                 email: jUrl,
+//                 location: jLocation,
+//                 city: jCity,
+//                 state: jState,
+//                 numApplied: null,
+//                 whoApplied: null
+//             }, {}
+//         )
+//         res.render("pages/employer")
+//         // res.redirect('/employer')
+//     } catch (err) {
+//         console.error(err)
+//         res.render('error/500')
+//     }
+// })
 
 router.post('/', async (req, res) => {
 
