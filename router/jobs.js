@@ -20,19 +20,19 @@ router.get("/", async (req, res) => {
 
 
 router.get("/matchJob/:id", async (req, res) => {
-    
+
     const matchedId = req.params.id
     console.log(matchedId)
 
     const jobFind = await db.findAll({
         attributes: ['title', 'companyName', 'description', 'email', 'city', 'state', 'location'],
         // where: "id"=== matchedId
-    // })
+        // })
 
-    // res.send(jobFind)
+        // res.send(jobFind)
     }, {
-        where:  matchedId === 'id',
-        include: {model: db2, as: "userJobs"}
+        where: matchedId === 'id',
+        include: { model: db2, as: "userJobs" }
     })
 
     // console.log(jobFind[0])
@@ -49,12 +49,13 @@ router.get("/matchJob/:id", async (req, res) => {
     //         id: matchedId   
     //     }
     // })
-// //     const jobFind = await db.findOne( { where: { id: matchedId }, include: [ db2] } )
-//     res.send(jobFind)
-    res.json({
-        is: "working", 
-        jobFind
-    })
+    // //     const jobFind = await db.findOne( { where: { id: matchedId }, include: [ db2] } )
+    //     res.send(jobFind)
+    // res.json({
+    //     // is: "working", 
+    //     jobFind:
+    // })
+    res.json(jobFind)
 })
 
 
