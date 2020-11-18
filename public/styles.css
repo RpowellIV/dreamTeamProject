@@ -13,7 +13,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* display: contents;
+  flex: auto;
+  justify-content: space-evenly; */
 }
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -100,3 +104,29 @@ a {
   margin: auto;
   width: 100%;
 }
+
+.plusJobs {
+  display: flex !important;
+  flex-wrap: wrap ;
+  /* flex-direction: row !important; */
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+/* .plusJobs > div {
+  display: flex ;
+  flex-wrap: wrap ;
+  flex-direction: row !important;
+  text-align: center ;
+} */
+
+/* 
+.empPage * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: contents;
+  flex: auto;
+  justify-content: space-evenly;
+} */

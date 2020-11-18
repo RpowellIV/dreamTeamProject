@@ -7,17 +7,18 @@ const db = require('../models').userJobs;
 
 
 router.get("/", async (req, res) => {
-    
+
     const jobs = await db.findAll({
-        attributes: ['JobId', 'UserId'],
-        
+        attributes: ['JobId'],
+
     }, {
         where: req.user.id === 'UserId'
     })
     res.json({
-        is: "working", 
+        is: "working",
         jobs
     })
+
 })
 
-module.exports = {router};
+module.exports = { router };
